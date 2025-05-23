@@ -1,0 +1,6 @@
+@ProductManagement_CleanArchitecture_2025_HostAddress = http://localhost:5265
+
+GET {{ProductManagement_CleanArchitecture_2025_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
