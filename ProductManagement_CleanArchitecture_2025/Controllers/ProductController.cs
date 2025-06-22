@@ -49,5 +49,50 @@ namespace ProductManagement_CleanArchitecture_2025.Controllers
             await _productService.DeleteProduct(id);
             return Ok();
         }
+
+        [HttpGet("Get all product by linq query")]
+        public IActionResult GetAllProductLinqQuery()
+        {
+            return Ok(_productService.GetAllProduct_LinqQuery());
+        }
+
+        [HttpGet("Get product by linq query")]
+        public IActionResult GetProductByIdLinqQuery(int id)
+        {
+            return Ok(_productService.GetProductById_LinqQuery(id));
+        }
+
+        [HttpGet("Get all product by query syntax database")]
+        public IActionResult GetAllProductQuerySyntaxDatabase()
+        {
+            return Ok(_productService.GetAllProduct_SqlQueryRaw());
+        }
+
+        [HttpGet("Get product by query syntax database")]
+        public IActionResult GetProductQuerySyntaxDatabase(int id)
+        {
+            return Ok(_productService.GetProductById_SqlQueryRaw(id));
+        }
+
+        [HttpPost("Create product by query syntax database")]
+        public IActionResult CreateProductQuerySyntaxDatabase(CreateProductDto product)
+        {
+            var create = _productService.CreateProduct_ExcuteSqlRaw(product);
+            return Ok(create);
+        }
+
+        [HttpPost("Update product by query syntax database")]
+        public IActionResult UpdateProductQuerySyntaxDatabase(UpdateProductDto product)
+        {
+            var create = _productService.UpdateProduct_ExcuteSqlRaw(product);
+            return Ok(create);
+        }
+
+        [HttpDelete("Delete product by query syntax database")]
+        public IActionResult CreateProductQuerySyntaxDatabase(int id)
+        {
+            var create = _productService.DeleteProduct_ExcuteSqlRaw(id);
+            return Ok(create);
+        }
     }
 }

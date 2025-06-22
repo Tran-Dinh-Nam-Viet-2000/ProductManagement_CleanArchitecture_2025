@@ -1,4 +1,4 @@
 ﻿namespace Application.Dtos.Product
 {
-    public record CreateProductDto(int Id, string ProductName, string Description);
+    public record CreateProductDto(string ProductName, string Description);
 }
